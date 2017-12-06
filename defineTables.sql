@@ -17,26 +17,30 @@ CREATE TABLE Board_Member(
 
 CREATE TABLE Division(
     ID INTEGER not null,
-    Name VARCHAR not null,
+    Name VARCHAR(30) not null,
     County_ID INTEGER not null,
     PRIMARY KEY (Division_ID),
     FOREIGN KEY (County_ID) REFERENCES County(ID)
 );
 
 CREATE TABLE Team(
-    ID NUMBER(9, 0) not null,
-    Division_ID INTEGER not null, 
+    ID INTEGER not null,
+    Division_ID INTEGER not null,
+    Manager_ID INTEGER not null, 
     Name VARCHAR(20) not null,
     Town VARCHAR(20),
     PRIMARY KEY (ID),
-    FOREIGN KEY (Division_ID) REFERENCES Division(ID)
+    FOREIGN KEY (Division_ID) REFERENCES Division(ID),
+    FOREIGN KEY (Manager_ID) REFERENCES Manager(ID)
 );
 
 CREATE TABLE Pitch(
     ID INTEGER not null,
     Name VARCHAR(20) not null,
+    County_ID INTEGER not null,
     Address VARCHAR(50) not null,
-    PRIMARY KEY(ID)
+    PRIMARY KEY(ID),
+    FOREIGN KEY (County_ID) REFERENCES County(ID)
 );
 
 CREATE TABLE Match(
@@ -53,13 +57,11 @@ CREATE TABLE Match(
 );
 
 CREATE TABLE Manager(
-    PPS NUMBER(9,0) not null,
+    ID INTEGER not null,
     Name VARCHAR(20) not null,
-    Team_ID INTEGER not null,
     Address VARCHAR(50),
     Phone_no INTEGER,
     PRIMARY KEY (PPS),
-    FOREIGN KEY (Team_ID) REFERENCES Team(ID),
     CONSTRAINT check_PPS CHECK (PPS < 1000000000)
 );
 
