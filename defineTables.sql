@@ -11,7 +11,7 @@ CREATE TABLE Board_Member(
     County_ID INTEGER not null,
     Name VARCHAR2(20) not null,
     Phone_no INTEGER not null,
-    Address VARCHAR2(50) not null
+    Address VARCHAR2(50) not null,
     PRIMARY KEY (PPS),
     CONSTRAINT check_PPS CHECK (PPS < 1000000000)
 );
@@ -72,7 +72,7 @@ CREATE TABLE Player(
     Phone_no INTEGER,
     Address VARCHAR(50),
     PRIMARY KEY (PPS),
-    CONSTRAINT check_PPS CHECK (PPS < 1000000000));
-);
+    CONSTRAINT check_PPS CHECK (PPS < 1000000000)
+);
 
 
