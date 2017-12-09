@@ -19,6 +19,6 @@ BEGIN
     SET T22.Score_Against = T22.Score_Against + :new.Score1
     WHERE T22.ID = :new.Team_2_ID;
 
-    endif;
+    end if;
 END; 
     
