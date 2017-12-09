@@ -1,5 +1,4 @@
 --County Table
-
 CREATE TABLE County(
     ID INTEGER not null,
     Name VARCHAR(20) not null,
@@ -7,7 +6,6 @@ CREATE TABLE County(
 );
 
 --Board Member Table
-
 CREATE TABLE Board_Member(
     PPS NUMBER(9,0) not null,
     County_ID INTEGER not null,
