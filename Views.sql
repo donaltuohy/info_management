@@ -1,0 +1,1 @@
+select Name, Points, Won, Drawn, Lost, Score_For, Score_Against from Team Join Club ON club_ID=Club.ID where Team.Division_ID=1;
